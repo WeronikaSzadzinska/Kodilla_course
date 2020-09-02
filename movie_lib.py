@@ -43,10 +43,11 @@ library = [m1, m2, m3, s1, s2, s3]
 def get_movies(library):
     movie_lib = []
     for n in library:
-        if isinstance(n, Movie):
+        if isinstance(n, Movie) and not isinstance(n, Series):
             movie_lib.append(n)
     movie_lib = sorted(movie_lib, key=lambda movie:movie.title)
     return movie_lib
+
 
 def get_series(library):
     series_lib = []
@@ -54,9 +55,10 @@ def get_series(library):
         if isinstance(n, Series):
             series_lib.append(n)
     series_lib = sorted(series_lib, key=lambda series:series.title)
-    return series_lib
+    return print(series_lib)
 
-search_title = input("What title are you looking for? ")
+
+'''search_title = input("What title are you looking for? ")
 def search(library, search_title):
     for n in library:
         if n.title == search_title:
@@ -96,6 +98,6 @@ def top_titles(top, content_type):
                 print(f"top list: {library_sorted[k]} with numbers of views: {library_sorted[k].watched}")
                 
     else:
-        print("choose smaller number for top_list")
+        print("choose smaller number for top_list")'''
 
 
